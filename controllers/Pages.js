@@ -7,7 +7,7 @@ async function showHome(req, res) {
 async function sendMusics(req, res) {
   try {
     const musics = await Music.find({});
-    console.log(musics);
+    // console.log(musics);
     res.send(musics);
   } catch (err) {
     console.error(err);
