@@ -39,13 +39,20 @@ header {
   flex-direction: row;
   justify-content: center;
   text-align: center;
-
 }
 
 header h4 {
   width: 100%;
   margin-left: .5rem;
-  padding: 0 0 0 41px;
+}
+
+#left-bar{
+  font-size: 1.8em;
+  margin: 0;
+  padding-left: 0;;
+  display: flex;
+  float: left;
+  color: inherit;
 }
 
 #user-enter {
@@ -55,12 +62,12 @@ header h4 {
   display: flex;
   float: right;
   text-decoration: none;
-  color: rgb(139, 153, 150);
+  color: inherit;
 }
 
 .enter-btn > i:nth-child(1) {
   transition: color 0.4s;
-  color: rgb(139, 153, 150);
+  color: inherit;
 }
 .enter-btn > i:nth-child(2) {
   transition: opacity 0.05s;
