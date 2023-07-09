@@ -4,6 +4,15 @@ const Music = require('../models/music')
 async function showHome(req, res) {
   res.render('pages/home');
 }
+
+async function showLogin(req,res){
+  res.render('pages/login', {layout:'users'});
+}
+
+async function showRegister(req, res) {
+  res.render('pages/register', {layout: 'users'})
+}
+
 async function sendMusics(req, res) {
   try {
     const musics = await Music.find({});
@@ -17,5 +26,7 @@ async function sendMusics(req, res) {
 module.exports = { 
    showHome,
    sendMusics,
+   showLogin,
+   showRegister,
 };
   
