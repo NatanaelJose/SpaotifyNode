@@ -3,7 +3,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  border-radius: 15px;
+  border-radius: .9375rem;
   background-image: linear-gradient(rgb(148, 52, 52), rgb(14, 13, 13));
 }
 
@@ -11,9 +11,15 @@
   background: rgba(0, 0, 0, 0);
 }
 
+@media screen and (maxwidth: 48rem) {
+  #cover {
+    width: 80%;
+  }
+}
+
 body {
   background-image: linear-gradient(rgb(148, 52, 52), rgb(14, 13, 13));
-  height: fit-content;
+  height: 100vh;
   color: white;
   font-family: sans-serif;
   display: flex;
@@ -38,7 +44,7 @@ header {
 
 header h4 {
   width: 100%;
-  margin-left: 8px;
+  margin-left: .5rem;
   padding: 0 0 0 41px;
 }
 
@@ -67,7 +73,7 @@ header h4 {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  margin: 1.7em 0 0.7em 0;
+  margin: 1em 0 0.7em 0;
 }
 
 #button-container {
@@ -75,6 +81,7 @@ header h4 {
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+  max-width: 100%;
 }
 
 .button {
@@ -90,7 +97,9 @@ header h4 {
 }
 
 #cover {
-  width: 450px;
+  width: 28.125rem;
+  max-height: 28.125rem;
+  max-width: 100%;
   box-shadow: 3px 3px 10px black;
 }
 
@@ -112,13 +121,18 @@ header h4 {
 
 #progress-bar {
   background-color: rgb(139, 153, 150);
-  height: 3px;
+  height: .1875rem;
   width: 100%;
   border-radius: 15px;
   cursor: pointer;
   display: flex;
   flex-direction: row;
   align-items: center;
+}
+
+#progress-container {
+  max-width: 100%;
+  max-height: 100vh;
 }
 
 #current-progress {
@@ -133,9 +147,9 @@ header h4 {
 
 #progress-rounddot {
   position: relative;
-  left: -9px;
-  height: 10px;
-  width: 10px;
+  left: -0.5625rem;
+  height: .625rem;
+  width: .625rem;
   background-color: white;
   border-radius: 80vh;
 }
@@ -146,6 +160,8 @@ header h4 {
   justify-content: space-between;
   font-size: smaller;
   margin-top: 0.2em;
+  box-sizing: border-box;
+  max-width: 100%;
 }
 
 #like {

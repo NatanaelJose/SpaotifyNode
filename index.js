@@ -22,15 +22,3 @@ app.use('/', pagesRoutes);
 app.listen(3000, () => {
     console.log('Servidor rodando na porta 3000');
   });
-
-/**
-const Music = require("../../models/music")
-const mongoose = require("mongoose")
-Music.find({})
-    .then(Musics => {
-      console.log(Musics);
-      mongoose.connection.close(); // Fechar a conexão após a consulta
-    })
-    .catch(err => {
-      console.error(err);
-    }); **/
