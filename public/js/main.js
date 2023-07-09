@@ -20,7 +20,6 @@ const api = fetch('http://localhost:3000/api').then(response => response.json())
     let isShuffled = false;
     let isPlaying = false;
     let repeatOn = false;
-    let usrOn = false;
 
     const OriginalPlaylist = JSON.parse(localStorage.getItem('playlist')) ?? dataMusic;
     let sortedPlaylist = [...OriginalPlaylist]; //spread
@@ -193,13 +192,8 @@ const api = fetch('http://localhost:3000/api').then(response => response.json())
     }
     */
     function usrButtonClicked() {
-        if(usrOn == false){
-            usrButton.classList.add("button-active");
-            usrOn = true;
-        } else {
-            usrButton.classList.remove("button-active");
-            usrOn = false;
-        }
+        usrButton.classList.add("button-active");
+        usrButton.classList.add("button-active");
     }
     
     initializeSong();
