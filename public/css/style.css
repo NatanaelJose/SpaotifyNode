@@ -1,0 +1,179 @@
+::-webkit-scrollbar {
+  width: 0.125rem;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 15px;
+  background-image: linear-gradient(rgb(148, 52, 52), rgb(14, 13, 13));
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0);
+}
+
+body {
+  background-image: linear-gradient(rgb(148, 52, 52), rgb(14, 13, 13));
+  height: fit-content;
+  color: white;
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  user-select: none;
+}
+
+button {
+  background-color: inherit;
+  color: inherit;
+  border: none;
+}
+
+header {
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+
+}
+
+header h4 {
+  width: 100%;
+  margin-left: 8px;
+  padding: 0 0 0 41px;
+}
+
+#user-enter {
+  font-size: 1.8em;
+  margin: 0;
+  padding-right: 0;;
+  display: flex;
+  float: right;
+  text-decoration: none;
+  color: rgb(139, 153, 150);
+}
+
+.enter-btn > i:nth-child(1) {
+  transition: color 0.4s;
+  color: rgb(139, 153, 150);
+}
+.enter-btn > i:nth-child(2) {
+  transition: opacity 0.05s;
+  opacity: 0;
+  color: rgb(0, 183, 107);
+}
+
+#bellow-cover {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1.7em 0 0.7em 0;
+}
+
+#button-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.button {
+  font-size: 2em;
+  cursor: pointer;
+}
+
+.button-navigate {
+  font-size: 3em;
+}
+.button-biggest {
+  font-size: 4em;
+}
+
+#cover {
+  width: 450px;
+  box-shadow: 3px 3px 10px black;
+}
+
+#playlist-title {
+  display: flex;
+  flex-direction: row;
+  margin: 0.5em 0 1.5em 0;
+  justify-content: center;
+}
+
+#song-name {
+  font-size: 1.5em;
+  font-weight: bolder;
+}
+
+.light-color {
+  color: rgb(139, 153, 150);
+}
+
+#progress-bar {
+  background-color: rgb(139, 153, 150);
+  height: 3px;
+  width: 100%;
+  border-radius: 15px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#current-progress {
+  --progress: 0%;
+  --transition: 0;
+  background-color: white;
+  height: inherit;
+  width: var(--progress);
+  border-radius: inherit;
+  transition: var(--transition);
+}
+
+#progress-rounddot {
+  position: relative;
+  left: -9px;
+  height: 10px;
+  width: 10px;
+  background-color: white;
+  border-radius: 80vh;
+}
+
+#time-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: smaller;
+  margin-top: 0.2em;
+}
+
+#like {
+  display: flex;
+  font-size: 1.8em;
+}
+.fav-btn > i:nth-child(1) {
+  transition: color 0.4s;
+  color: rgb(139, 153, 150);
+}
+.fav-btn > i:nth-child(2) {
+  transition: opacity 0.5s;
+  opacity: 0;
+  color: rgb(0, 183, 107);
+}
+.button-active > i:nth-child(2) {
+  opacity: 1;
+}
+.button-active > i:nth-child(1) {
+  color: rgb(0, 183, 107);
+}
+
+.rotate {
+  transform: rotate(180deg); 
+  transition: 1s;
+}
+
+.unrotate {
+    transform: rotate(-180deg); 
+    transition: 1s;
+}
