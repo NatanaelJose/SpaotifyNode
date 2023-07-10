@@ -3,29 +3,29 @@
             <h1>Registrar-se</h1>
             <p>Registre-se para ver suas músicas salvas!</p>
         </header>
-        <section>
+        <form action="/register" method="POST">
             <article class="form-control">
                 <label for="name">Nome<span class="req">*</span></label>
                 <input type="text" id="name" name="name" autocomplete="name" placeholder="Digite seu Nome" required/>
             </article>
             <article class="form-control">
                 <label for="email">E-mail<span class="req">*</span></label>
-                <input type="text" id="email" name="email" autocomplete="email" placeholder="Digite seu E-mail" required/>
+                <input type="email" id="email" name="email" autocomplete="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" placeholder="Digite seu E-mail" required/>
             </article>
             <article class="form-control">
-                <label for="senha">Senha<span class="req">*</span></label>
-                <input type="email" id="senha" name="senha" autocomplete="off" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" placeholder="Digite sua Senha" required/>
+                <label for="senha1">Senha<span class="req">*</span></label>
+                <input type="password" id="senha1" name="senha1" autocomplete="off" pattern="[a-z0-5]{8,}" placeholder="Digite sua Senha" required/>
             </article>
             <article class="form-control">
-                <label for="senha">Confirmar Senha<span class="req">*</span></label>
-                <input type="password" id="confirmsenha" name="confirmsenha" autocomplete="off" pattern="[a-z0-5]{8,}" placeholder="Confirme a sua Senha" required/>
+                <label for="senha2">Confirmar Senha<span class="req">*</span></label>
+                <input type="password" id="senha2" name="senha2" autocomplete="off" pattern="[a-z0-5]{8,}" placeholder="Confirme a sua Senha" required/>
             </article>
             {{!-- <a href="#" id="help-password">Quer ajuda com a senha?</a> --}}
             <button type="submit" id="submit-register">Registrar-se</button>
             <div class="link">
                 <span>Já possui Login? </span><a href="/login">Clique aqui para fazer o Login!</a>
             </div>
-        </section>
+        </form>
         <div class="password-container">
             
         </div>

@@ -6,6 +6,7 @@
 body {
     background: rgb(32, 33, 36);
     display:flex;
+    flex-direction: column-reverse;
     justify-content: center;
     color: #FDFDFD;
     height: auto;
@@ -130,4 +131,13 @@ input {
     color: red;
     font-size: smaller;
     align-self: top;
+}
+
+.div-alert {
+    color: red;
+    margin: auto;
+}
+.div-alert-sucess {
+    color: green;
+    margin: auto;
 }
