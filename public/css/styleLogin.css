@@ -156,11 +156,11 @@ input {
   }
   
   .back-button::after {
-    content: "Back";
+    content: "Voltar";
     color: rgb(101, 113, 247);
     font-size: 1.5rem;
     position: absolute;
-    bottom: -2rem;
+    bottom: -1rem;
     left: 50%; 
     transform: translateX(-50%);
     opacity: 0;
