@@ -18,7 +18,7 @@ body {
 
 #login-container {
     background-color: rgb(48, 49, 52);
-    width: 40%;
+    width: 34.375rem;
     height: fit-content;
     max-width: 62.5rem;
     min-height: 62.5vh;
@@ -152,7 +152,7 @@ input {
     border-radius: 50%;
     border: none;
     font-size: 3rem;
-    background-color: #18181b;
+    background: none;
   }
   
   .back-button::after {
