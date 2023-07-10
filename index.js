@@ -18,6 +18,7 @@ app.use(session({
   keys: ['key1', 'key2'],
   saveUninitialized: true,
 }));
+
 const whitelist = ['http://localhost:3000'];    
 const corsOptions = {
     origin: function (origin, callback) {
