@@ -16,10 +16,10 @@ async function showRegister(req, res) {
 }
 
 async function registerAcc(req, res) {
-    let email = req.body.email
-    let nome = req.body.nome
+    const email = req.body.email
+    const nome = req.body.nome
     let senha1 = req.body.senha1
-    let senha2 = req.body.senha2
+    const senha2 = req.body.senha2
 
     if (email == ""|| email == undefined || email == null) {
         req.flash("error_msg", "Email em branco ou inválida")
