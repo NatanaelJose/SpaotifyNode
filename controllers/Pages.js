@@ -7,10 +7,6 @@ async function showHome(req, res) {
   res.render('pages/home');
 }
 
-async function showLogin(req,res){
-  res.render('pages/login', {layout:'users', namePage: 'Login',});
-}
-
 async function showRegister(req, res) {
   res.render('pages/register', {layout: 'users', namePage: 'Register',})
 }
@@ -71,6 +67,11 @@ async function registerAcc(req, res) {
         }
 }
 
+async function showLogin(req,res){
+  res.render('pages/login', {layout:'users', namePage: 'Login',});
+}
+
+async function Login(req, res){}
 
 async function sendMusics(req, res) {
   try {

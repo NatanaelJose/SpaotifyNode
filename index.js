@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express');
 const app = express();
 const {engine} = require('express-handlebars');
@@ -7,6 +8,7 @@ const session = require('cookie-session')
 const flash = require('connect-flash');
 const cors = require('cors')
 
+const PORT = process.env.PORT || 3000;
 //routes
 const mongoDB = require('./db/conn');
 const pagesRoutes = require('./routes/pagesRoutes');
@@ -14,8 +16,8 @@ const pagesRoutes = require('./routes/pagesRoutes');
 //flash e session
 app.use(session({
   maxAge:12*60*60*1000,
-  secret: 'secret',
-  keys: ['key1', 'key2'],
+  secret: process.env.SECRET || 'secret',
+  keys: [process.env.KEY1, process.env.KEY2],
   saveUninitialized: true,
 }));
 
@@ -55,6 +57,10 @@ app.use(express.static('public'))
 
 app.use('/', pagesRoutes);
 
-app.listen(3000, () => {
+app.listen(PORT, () => {
+  if(PORT === 3000) {
     console.log('Servidor rodando na porta 3000');
+  } else {
+    console.log('Servidor está rodando')
+  }
   });
