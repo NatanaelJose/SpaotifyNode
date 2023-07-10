@@ -21,7 +21,7 @@ app.use(session({
   saveUninitialized: true,
 }));
 
-const whitelist = ['http://localhost:3000'];    
+const whitelist = ['http://localhost:5000'];    
 const corsOptions = {
     origin: function (origin, callback) {
       if (whitelist.indexOf(origin) !== -1 || !origin) {
@@ -44,7 +44,7 @@ app.use((req, res, next) => {
 })
 
 //view engine setup
-app.engine('handlebars', engine());
+app.engine('handlebars', engine({extname: '.handlebars', defaultLayout: "main"}));
 app.set('view engine', 'handlebars');
 app.set("views", "./views");
 

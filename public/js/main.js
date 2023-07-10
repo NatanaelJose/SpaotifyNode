@@ -14,7 +14,7 @@ const totalTime = document.getElementById('total-time');
 const likeButton = document.getElementById('like');
 const usrButton = document.getElementById('user-enter');
 
-const api = fetch('http://localhost:3000/api').then(response => response.json()).then(data => {
+const api = fetch('http://localhost:5000/api').then(response => response.json()).then(data => {
     const dataMusic = data;
 
     let isShuffled = false;

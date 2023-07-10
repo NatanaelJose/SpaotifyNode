@@ -11,6 +11,10 @@ async function showRegister(req, res) {
   res.render('pages/register', {layout: 'users', namePage: 'Register',})
 }
 
+async function showLogin(req,res){
+  res.render('pages/login', {layout:'users', namePage: 'Login',});
+}
+
 async function registerAcc(req, res) {
     const email = req.body.email
     const nome = req.body.nome
@@ -18,30 +22,30 @@ async function registerAcc(req, res) {
     const senha2 = req.body.senha2
 
     if (email == ""|| email == undefined || email == null) {
-        req.flash("error_msg", "Email em branco ou inválida")
+        req.flash("error_msg", "Email em branco ou inválido")
         res.redirect('/register')
     } else if (senha1 == ""|| senha1 == undefined || senha1 == null) {
-        req.flash("error_msg", " senha em branco ou inválida")
+        req.flash("error_msg", "Senha em branco ou inválida")
         res.redirect('/register')
     } else if (senha2 == ""|| senha2  == undefined || senha2 == null) {
-        req.flash("error_msg", " repita a senha ")
+        req.flash("error_msg", "Senha de confirmação em branco ou inválida")
         res.redirect('/register')       
     } else {
         //checar se já existe esse email
         if (senha1 != senha2) {
-            req.flash("error_msg", " as senhas não batem ")
+            req.flash("error_msg", "As senhas não batem")
             res.redirect('/register') 
         } else {
             User.findOne({ email: email }).then((data) => {
                     if (data) {
-                        req.flash("error_msg", "esse email já foi utilizado")
+                        req.flash("error_msg", "Este email já foi utilizado")
                         res.redirect("/register")
                     }  else {
                         //encryptar senha
                         bcrypt.genSalt(10, (erro, salt) => {
                             bcrypt.hash(senha1, salt, (erro, hash) => {
                                 if (erro) {
-                                    req.flash("error_msg", "erro no salvamento")
+                                    req.flash("error_msg", "Erro no salvamento")
                                     res.redirect("/register")
                                 }
                                 senha1 = hash
@@ -52,7 +56,7 @@ async function registerAcc(req, res) {
                                   admin: 0,
                                 }
                                 new User(newUser).save().then(() => {
-                                    req.flash("success_msg", "conta criada com sucesso, agora faça seu login")
+                                    req.flash("success_msg", "Conta criada com sucesso, faça seu login!")
                                     res.redirect("/login")
                                 }).catch((err)=>{
                                     req.flash("success_msg", err)
@@ -67,11 +71,43 @@ async function registerAcc(req, res) {
         }
 }
 
-async function showLogin(req,res){
-  res.render('pages/login', {layout:'users', namePage: 'Login',});
-}
+async function Login(req, res){
+  let email = req.body.email
+    let senha1 = req.body.senha1
 
-async function Login(req, res){}
+    if (email == ""|| email == undefined || email == null) {
+        req.flash("error_msg", "Email em branco ou inválido ")
+        res.redirect('/login')
+    } else if (senha1 == ""|| senha1 == undefined || senha1 == null) {
+        req.flash("error_msg", " senha em branco ou inválida")
+        res.redirect('/login')
+    } else {
+        User.findOne({ email: email }).then((data) => {
+            if (data) {
+                    bcrypt.compare(senha1, data.senha, function(err, result) {
+                    if (result) {
+                        req.session.user = {}
+                        if (data.admin == 1) {
+                            req.session.user["admin"] = true
+                        }
+                        req.session.user.nome = data.nome;
+                            req.flash("error_msg", `bem vindo ao SOU, ${req.session.user.nome}`)
+                            console.log(`O usuário ${req.session.user.nome} logou`)
+                            res.redirect("/")
+                    } else {
+                        req.flash("error_msg", "a senha está incorreta")
+                        res.redirect("/login")
+                    }
+                })
+                } else {
+                    req.flash("error_msg", "esse email não existe")
+                    res.redirect("/login")
+                }
+            }).catch((err)=>{
+                req.flash("success_msg", err)
+                res.redirect("/login")
+            })
+}};
 
 async function sendMusics(req, res) {
   try {
@@ -81,7 +117,7 @@ async function sendMusics(req, res) {
   } catch (err) {
     console.error(err);
   }
-}
+};
 
 module.exports = { 
    showHome,
@@ -89,5 +125,5 @@ module.exports = {
    showLogin,
    showRegister,
    registerAcc,
+   Login,
 };
-  

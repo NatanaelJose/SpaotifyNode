@@ -3,11 +3,7 @@
             <h1>Login</h1>
             <p>Faça seu Login para ver suas músicas salvas!</p>
         </header>
-        <form>
-            <article class="form-control">
-                <label for="name">Nome<span class="req">*</span></label>
-                <input type="text" id="name" name="name" autocomplete="name" placeholder="Digite seu Nome" required/>
-            </article>
+        <form action="/login" method="POST">
             <article class="form-control">
                 <label for="email">E-mail<span class="req">*</span></label>
                 <input type="email" id="email" name="email" autocomplete="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" placeholder="Digite seu E-mail" required/>
