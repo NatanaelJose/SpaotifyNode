@@ -203,6 +203,6 @@ header h4 {
 
 .button:focus-visible{
   outline: none;
-  border: 1px black solid;
+  border: 1px white solid;
   border-radius: 25%;
 }
