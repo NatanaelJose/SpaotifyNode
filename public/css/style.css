@@ -18,7 +18,7 @@
 }
 
 body {
-  background-image: linear-gradient(rgb(148, 52, 52), rgb(14, 13, 13));
+  background-image: linear-gradient(#991b1b,#7f1d1d, #450a0a);
   height: 100vh;
   color: white;
   font-family: sans-serif;
@@ -199,4 +199,10 @@ header h4 {
 .unrotate {
     transform: rotate(-180deg); 
     transition: 1s;
+}
+
+.button:focus-visible{
+  outline: none;
+  border: 1px black solid;
+  border-radius: 25%;
 }
