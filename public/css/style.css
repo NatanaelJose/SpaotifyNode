@@ -26,7 +26,7 @@
 body {
   background-image: linear-gradient(#991b1b,#7f1d1d, #450a0a);
   height: 100vh;
-  color: white;
+  color: rgb(253, 248, 248);
   font-family: sans-serif;
   display: flex;
   flex-direction: column;
