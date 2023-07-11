@@ -4,43 +4,33 @@
 
 ::-webkit-scrollbar-thumb {
   border-radius: .9375rem;
-  background-image: linear-gradient(rgb(148, 52, 52), rgb(14, 13, 13));
+  background-color: hsla(240, 2%, 25%, 1);;
 }
 
 ::-webkit-scrollbar-track {
   background: rgba(0, 0, 0, 0);
 }
 
-@media screen and (max-width: 768px) {
-  /* .cover-container {
-    margin: 0 auto;
-    position: relative;
-    width: 90%;
-    height: 100%;
-    max-width: 28.125rem;
-    max-height: 28.125rem;
-    box-shadow: 3px 3px 10px black;
-  } */
-  body {
-    background-image: linear-gradient(#991b1b,#7f1d1d, #450a0a);
-    height: 100vh;
-    color: rgb(253, 248, 248);
-    font-family: sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+@media (min-width: 767px) {
+  .golden-lines {
+    background: linear-gradient(#ca8a04,#FFD700,#a16207);
   }
 }
 
 body {
-  background-image: linear-gradient(#991b1b,#7f1d1d, #450a0a);
+  background: hsla(240, 2%, 25%, 1);
+  background: radial-gradient(circle, hsla(240, 2%, 25%, 1) 0%, hsla(0, 0%, 6%, 1) 100%);
+  background: -moz-radial-gradient(circle, hsla(240, 2%, 25%, 1) 0%, hsla(0, 0%, 6%, 1) 100%);
+  background: -webkit-radial-gradient(circle, hsla(240, 2%, 25%, 1) 0%, hsla(0, 0%, 6%, 1) 100%);
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#3E3E40", endColorstr="#0F0F0F", GradientType=1 );
   height: 100vh;
-  color: rgb(253, 248, 248);
+  color: #F9F9F9;
   font-family: sans-serif;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
+  flex-direction: row;
+  justify-content: center;
+  user-select: none;
+  align-items: center;  
 }
 
 button {
@@ -73,7 +63,7 @@ header h4 {
 #user-enter {
   font-size: 1.8em;
   margin: 0;
-  padding-right: 0;;
+  padding-right: 0;
   display: flex;
   float: right;
   text-decoration: none;
@@ -90,12 +80,16 @@ header h4 {
   color: rgb(0, 183, 107);
 }
 
+#like {
+  align-self: flex-start;
+}
 #bellow-cover {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   margin: 1em 0 0.7em 0;
+  width: fit-content;
 }
 
 #button-container {
@@ -117,6 +111,9 @@ header h4 {
 .button-biggest {
   font-size: 4em;
 }
+.button-action {
+  font-size: 2.5em;
+}
 
 .cover-container img {
   width: 100%;
@@ -124,13 +121,16 @@ header h4 {
   object-fit: cover;
 }
 .cover-container {
+  display: grid;
   position: relative;
-  width: 100%;
+  margin: 0 auto;
+  width: 85%;
   height: fit-content;
   max-width: 28.125rem;
   max-height: 28.125rem;
   box-shadow: 3px 3px 10px black;
   overflow: hidden;
+  border-radius: 1.3rem;
 }
 
 #playlist-title {
@@ -140,17 +140,27 @@ header h4 {
   justify-content: center;
 }
 
+#song-info{
+  max-width: 90%;
+}
+
 #song-name {
   font-size: 1.5em;
   font-weight: bolder;
+  max-width: 80%;
+  word-break: break-word;
+}
+.light-color {
+  color: #D9D9D9;
 }
 
-.light-color {
-  color: rgb(139, 153, 150);
-}
+/* .overflow-words {
+  overflow-wrap: break-word;
+  max-width: fit-content;
+} */
 
 #progress-bar {
-  background-color: rgb(139, 153, 150);
+  background-color: #ECECEC;
   height: .1875rem;
   width: 100%;
   border-radius: 15px;
@@ -168,7 +178,7 @@ header h4 {
 #current-progress {
   --progress: 0%;
   --transition: 0;
-  background-color: white;
+  background-color: #F9F9F9;
   height: inherit;
   width: var(--progress);
   border-radius: inherit;
@@ -180,7 +190,7 @@ header h4 {
   left: -0.5625rem;
   height: .625rem;
   width: .625rem;
-  background-color: white;
+  background-color: #F9F9F9;
   border-radius: 80vh;
 }
 
@@ -198,20 +208,22 @@ header h4 {
   display: flex;
   font-size: 1.8em;
 }
+
 .fav-btn > i:nth-child(1) {
   transition: color 0.4s;
-  color: rgb(139, 153, 150);
+  color: #D9D9D9;
 }
 .fav-btn > i:nth-child(2) {
   transition: opacity 0.5s;
   opacity: 0;
   color: rgb(0, 183, 107);
 }
+
 .button-active > i:nth-child(2) {
   opacity: 1;
 }
 .button-active > i:nth-child(1) {
-  color: rgb(0, 183, 107);
+  color: #4B0082;
 }
 
 .rotate {
@@ -228,4 +240,63 @@ header h4 {
   outline: none;
   border: 1px white solid;
   border-radius: 25%;
+}
+
+.music-container {
+  background: linear-gradient( #ca8a04,#FFD700,#a16207);
+  border-radius: 1em;
+  padding: 1rem;
+  border: transparent solid 1px;
+  box-shadow: 3px 7px 12px 1px black;
+  height: fit-content;
+}
+/* .music-container::before{
+  content: url(../icon/music-note-beamed.svg);
+  position: absolute;
+  top: 50%;
+  left: 15%;
+  filter: gold;
+  transform: scale(6);
+}
+.music-container::after{
+  content: url(../icon/music-note-beamed.svg);
+  position: absolute;
+  top: 50%;
+  right: 15%;
+  filter: gold;
+  transform: scale(6);
+} */
+
+.group-lines:nth-of-type(1) {
+  position: fixed;
+  left: -15%;
+  top: -1%;
+  transform: rotate(-45deg);
+  width: 40%;
+}
+.group-lines:nth-of-type(2) {
+  position: fixed;
+  right: -15%;
+  bottom: -1%;
+  transform: rotate(-45deg);
+  width: 40%;
+}
+.group-lines:nth-of-type(3) {
+  position: fixed;
+  right: -15%;
+  top: 0;
+  transform: rotate(45deg);
+  width: 40%;
+}
+.group-lines:nth-of-type(4) {
+  position: fixed;
+  left: -15%;
+  bottom: -1%;
+  transform: rotate(45deg);
+  width: 40%;
+}
+.golden-lines {
+  height: 1.5em;
+  width: 100%;
+  margin-top: 1em;
 }
