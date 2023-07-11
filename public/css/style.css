@@ -223,7 +223,7 @@ header h4 {
   opacity: 1;
 }
 .button-active > i:nth-child(1) {
-  color: #4B0082;
+  color: rgb(0, 183, 107);
 }
 
 .rotate {
