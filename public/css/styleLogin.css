@@ -148,10 +148,23 @@ input {
     margin: auto;
 }
 
+@media screen and (max-width: 768px) {
+    .back-button {
+        position: absolute;
+        width: fit-content;
+        border-radius: 50%;
+        border: none;
+        font-size: 3rem;
+        background: none;
+        left: 23%;
+        top: 8%;
+    }
+}
+
 .back-button {
-    position: fixed;
+    position: absolute;
     width: fit-content;
-    left: 23%;
+    left: 5%;
     top: 8%;
     border-radius: 50%;
     border: none;
