@@ -133,23 +133,6 @@ header h4 {
   overflow: hidden;
 }
 
-.cover-container::after {
-  content: '';
-  width: 0.0625rem;
-  height: 3.75rem;
-  position: absolute;
-  left: -1px;
-  top: 70%;
-  opacity: 0;
-  transition: top 500ms ease, opacity 500ms ease;
-  background: linear-gradient(transparent, white, transparent);
-}
-
-.cover-container:hover::after {
-  top: 25%;
-  opacity: 1;
-}
-
 #playlist-title {
   display: flex;
   flex-direction: row;
