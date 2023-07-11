@@ -4,26 +4,29 @@
 }
 
 body {
-    background: #18181b;
-    display:flex;
-    flex-direction: column;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     justify-content: center;
+    background: #18181b;
     color: #FDFDFD;
     height: 100vh;
-    min-height: 80vh;
-    margin: 0;
-    padding: 0;
+    margin: 0 auto;
 }
 
+#container-all {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 34.375rem;
+}
 
 #login-container {
     background-color: rgb(48, 49, 52);
-    width: 34.375rem;
+    width: 90%;
     height: fit-content;
-    max-width: 62.5rem;
-    min-height: 62.5vh;
     padding: 1em;
-    margin: 2rem auto;
     display: flex;
     box-shadow: -2px -2px 24px -3px rgb(16, 16, 17);
     border-radius: 0.4em;
@@ -40,6 +43,7 @@ header {
 
 header p {
     color: rgb(164, 164, 164);
+    line-height: 1.5rem;
 }
 .form-control {
     display: flex;
@@ -145,10 +149,10 @@ input {
 }
 
 .back-button {
-    position: absolute;
+    position: fixed;
     width: fit-content;
-    left: 25%;
-    top: 10%;
+    left: 23%;
+    top: 8%;
     border-radius: 50%;
     border: none;
     font-size: 3rem;

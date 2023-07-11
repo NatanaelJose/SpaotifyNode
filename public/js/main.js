@@ -34,7 +34,7 @@ const api = fetch('http://localhost:5000/api').then(response => response.json())
         initializeSong();
         playSong();
     };
-    
+
     function previousSong(){
         if(index === 0){
             index = sortedPlaylist.length - 1;
@@ -45,20 +45,29 @@ const api = fetch('http://localhost:5000/api').then(response => response.json())
         playSong();
     };
     
-    function playSong(){
+    function playPauseDecider(){
+        if(isPlaying === true){
+            pauseSong();
+        } else {
+            playSong();
+        } 
+    
+    };
+
+    async function playSong(){
         play.querySelector('.bi').classList.remove('bi-play-circle-fill');
         play.querySelector('.bi').classList.add('bi-pause-circle-fill');
         song.play();
         isPlaying = true;
     };
     
-    function pauseSong(){
+    async function pauseSong(){
         play.querySelector('.bi').classList.remove('bi-pause-circle-fill');
         play.querySelector('.bi').classList.add('bi-play-circle-fill');
         song.pause();
         isPlaying = false;
     };
-    
+      
     /** 
     function likeButtonRender(){
         // Código de antes
@@ -84,15 +93,6 @@ const api = fetch('http://localhost:5000/api').then(response => response.json())
         bandName.innerHTML = sortedPlaylist[index].artist;
         songName.innerHTML = sortedPlaylist[index].name;
         // likeButtonRender();
-    };
-    
-    function playPauseDecider(){
-        if(isPlaying === true){
-            pauseSong();
-        } else {
-            playSong();
-        } 
-    
     };
     
     function updateProgress(){
