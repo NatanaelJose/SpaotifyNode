@@ -1,7 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const pagesController = require('../controllers/Pages');
+const playlistController = require('../controllers/Playlist');
 
+//playlistController.artistsPlaylist();
+//pagesController.createPlaylist()
 router.get('/', pagesController.showHome);
 router.get('/api', pagesController.sendMusics);
 router.get('/register', pagesController.showRegister);

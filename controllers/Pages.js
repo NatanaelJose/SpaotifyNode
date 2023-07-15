@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const bcrypt = require('bcrypt');
+const Playlist = require('../models/playlist')
 const Music = require('../models/music');
 const User = require('../models/users');
 
