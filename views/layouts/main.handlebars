@@ -12,6 +12,24 @@
     <link rel="shortcut icon" href="/icon/bread-vector.svg" type="image/x-icon">
     <link rel="canonical" href="/"/>
     <title>Spãotify</title>
+    <script defer>
+      function showBar(){
+        const sideBar = document.querySelector("div.menu-bar");
+        sideBar.classList.toggle('active');
+        setTimeout(() => {
+          unshowBar(sideBar);
+        }, 200);
+      }
+      function unshowBar(Bar){
+        function handleClick(event) {
+          if (!Bar.contains(event.target)) {
+          Bar.classList.remove('active');
+          window.removeEventListener('click', handleClick);
+          }
+        }
+        window.addEventListener('click', handleClick);
+      }
+    </script>
   </head>
   <body>
     {{{body}}}

@@ -272,6 +272,8 @@ header h4 {
   top: -1%;
   transform: rotate(-45deg);
   width: 40%;
+  pointer-events: none;
+
 }
 .group-lines:nth-of-type(2) {
   position: fixed;

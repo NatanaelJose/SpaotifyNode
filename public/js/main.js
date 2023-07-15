@@ -35,7 +35,6 @@ const api = fetch('http://localhost:5000/api').then(response => response.json())
         initializeSong();
         playSong();
     };
-
     function previousSong(){
         if(index === 0){
             index = sortedPlaylist.length - 1;
