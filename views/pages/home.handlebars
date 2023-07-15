@@ -20,12 +20,19 @@
 </div>
 <div class="music-container">
   <header>
-        <button class="button" id="left-bar"><i class="bi bi-list"></i></button>
+        <button class="button" id="left-bar" onclick="showBar()"><i class="bi bi-list"></i></button>
         <h4 id="playlist-title">Playlist Spãotify</h4>
+        {{#if cred}}
+        <a href="/logout" id="user-enter" class="enter-btn button"><i class="bi bi-person"></i>
+          <i style="position: absolute;"
+          class="bi bi-person-fill"></i>
+        </a>
+        {{else}}
         <a href="/login" id="user-enter" class="enter-btn button"><i class="bi bi-person"></i>
           <i style="position: absolute;"
           class="bi bi-person-fill"></i>
         </a>
+        {{/if}}
       </header>
       <div class="cover-container">
         <img alt="Disc Cover" id="cover" />
@@ -72,5 +79,11 @@
         </button>
       </div>
 </div>
+    <script>
+      function showBar(){
+        const sideBar = document.querySelector("div.menu-bar");
+        sideBar.classList.toggle('active');
+      }
+    </script>
     <noscript>Precisa de JavaScript</noscript>
     <script src="./js/main.js"></script>

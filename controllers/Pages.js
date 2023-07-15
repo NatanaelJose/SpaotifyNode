@@ -4,7 +4,17 @@ const Music = require('../models/music');
 const User = require('../models/users');
 
 async function showHome(req, res) {
-  res.render('pages/home');
+    if(req.session.user) {
+        let cred = {};
+        if(req.session.user.admin){
+            cred["admin"] = 1
+        }
+        let nome = req.session.user.nome;
+        cred["nome"] = nome;
+        res.render('pages/home', {cred:cred})
+    } else {
+        res.render('pages/home');
+    }
 }
 
 async function showRegister(req, res) {
@@ -91,7 +101,7 @@ async function Login(req, res){
                             req.session.user["admin"] = true
                         }
                         req.session.user.nome = data.nome;
-                            req.flash("error_msg", `bem vindo ao SOU, ${req.session.user.nome}`)
+                            req.flash("error_msg", `bem vindo ao spãotify, ${req.session.user.nome}`)
                             console.log(`O usuário ${req.session.user.nome} logou`)
                             res.redirect("/")
                     } else {
@@ -108,6 +118,15 @@ async function Login(req, res){
                 res.redirect("/login")
             })
 }};
+
+async function Logout(req, res){
+    let name = req.session.user.nome;
+    req.session.user = null;
+    req.session.dayData = null;
+    req.flash("success_msg", "Deslogado com sucesso");
+    console.log(`O usuário ${name} deslogou`);
+    res.redirect('/')
+}
 
 async function sendMusics(req, res) {
   try {
@@ -126,4 +145,5 @@ module.exports = {
    showRegister,
    registerAcc,
    Login,
+   Logout,
 };

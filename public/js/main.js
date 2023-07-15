@@ -17,6 +17,7 @@ const usrButton = document.getElementById('user-enter');
 const api = fetch('http://localhost:5000/api').then(response => response.json()).then(data => {
     const dataMusic = data;
 
+    shuffleArray(dataMusic);
     let isShuffled = false;
     let isPlaying = false;
     let repeatOn = false;

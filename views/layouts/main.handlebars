@@ -15,5 +15,25 @@
   </head>
   <body>
     {{{body}}}
+    {{#if success_msg}}
+    <div class="div-alerta">{{success_msg}}</div>
+    {{/if}}
+    {{#if error_msg}}
+    <div class="div-alerta">{{error_msg}}</div>
+    {{/if}}
+    <div class="menu-bar">
+      {{#if cred}}
+        <h4>Essas são suas playlists, {{cred.nome}}</h4>
+        <div class="container-playlists"></div>
+      {{else}}
+        <h4 class="centered-alert">Faça seu login para ter acesso as playlists</h4>
+        <div class="container-playlists">
+          <div class="playlist-option">
+            <img src="/icon/bread-vector.svg"/>
+            <h3>Nada aqui!</h3>
+          </div>
+        </div>
+      {{/if}}
+    </div>
   </body>
 </html>
