@@ -7,6 +7,7 @@ const logger = require('morgan');
 const session = require('cookie-session')
 const flash = require('connect-flash');
 const cors = require('cors')
+const handlebars = require('handlebars');
 
 const PORT = process.env.PORT || 3000;
 //routes
