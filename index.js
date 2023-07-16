@@ -45,7 +45,7 @@ app.use((req, res, next) => {
 })
 
 //view engine setup
-app.engine('handlebars', engine({extname: '.handlebars', defaultLayout: "main"}));
+app.engine('handlebars', engine());
 app.set('view engine', 'handlebars');
 app.set("views", "./views");
 
