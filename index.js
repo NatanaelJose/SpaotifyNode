@@ -21,7 +21,7 @@ app.use(session({
   saveUninitialized: true,
 }));
 
-const whitelist = ['http://localhost:5000', "https://charming-kashata-ba9538.netlify.app/"];    
+const whitelist = ['http://localhost:5000', "https://spaotify-node.vercel.app/"];    
 const corsOptions = {
     origin: function (origin, callback) {
       if (whitelist.indexOf(origin) !== -1 || !origin) {
