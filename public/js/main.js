@@ -209,3 +209,5 @@ const api = fetch('https://spaotify-node.vercel.app/api').then(response => respo
     song.addEventListener('ended', nextOrRepeat);
     progressContainer.addEventListener('click', jumpTo);
 }).catch((error) => console.log(error));
+
+api()
