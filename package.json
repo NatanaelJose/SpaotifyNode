@@ -4,7 +4,7 @@
   "description": "just a music player",
   "main": "index.js",
   "engines": {
-    "node": "v20.x"
+    "node": "v18.x"
   },
   "scripts": {
     "test": "node index.js",
