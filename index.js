@@ -9,18 +9,6 @@ const flash = require('connect-flash');
 const cors = require('cors')
 const handlebars = require('handlebars');
 const path = require('path')
-const helmet = require('helmet');
-
-app.use(helmet());
-app.disable('x-powered-by');
-app.use((req, res, next) => {
-  res.set({
-    'X-Content-Type-Options': 'nosniff',
-    'X-Frame-Options': 'SAMEORIGIN',
-    'Content-Security-Policy': "frame-ancestors 'self'",
-  });
-  next();
-});
 
 const PORT = process.env.PORT || 3000;
 //routes
