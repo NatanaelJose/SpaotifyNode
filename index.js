@@ -6,16 +6,27 @@ const bodyParser = require('body-parser');
 const logger = require('morgan');
 const session = require('cookie-session')
 const flash = require('connect-flash');
-const cors = require('cors')
+const cors = require('cors');
 const handlebars = require('handlebars');
-const path = require('path')
-
+const path = require('path');
+const helmet = require('helmet');
 const PORT = process.env.PORT || 3000;
+
 //routes
 const mongoDB = require('./db/conn');
 const pagesRoutes = require('./routes/pagesRoutes');
 
-//flash e session
+//flash, session e helmet
+app.use((req, res, next) => {
+  res.setHeader('Content-Security-Policy', "default-src 'self'");
+  res.setHeader('X-Content-Type-Options', 'nosniff');
+  res.setHeader('X-Frame-Options', 'SAMEORIGIN');
+  res.setHeader('X-XSS-Protection', '1; mode=block');
+  res.setHeader('Strict-Transport-Security', 'max-age=31536000; includeSubDomains'); 
+  next();
+});
+
+app.use(helmet());
 app.use(session({
   maxAge:12*60*60*1000,
   secret: process.env.SECRET || 'secret',
