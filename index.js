@@ -9,6 +9,7 @@ const flash = require('connect-flash');
 const cors = require('cors')
 const handlebars = require('handlebars');
 const path = require('path')
+const helmet = require('helmet');
 
 const PORT = process.env.PORT || 3000;
 //routes
@@ -38,6 +39,7 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 app.use(flash());
+app.use(helmet());
 
 app.use((req, res, next) => {
   res.locals.success_msg = req.flash("success_msg")

@@ -208,4 +208,4 @@ const api = fetch('https://spaotify-node.vercel.app/api').then(response => respo
     song.addEventListener('timeupdate', updateProgress);
     song.addEventListener('ended', nextOrRepeat);
     progressContainer.addEventListener('click', jumpTo);
-}).catch(error => console.error(error));
+}).catch((error) => console.log(error));
