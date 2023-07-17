@@ -12,7 +12,6 @@ const path = require('path')
 const helmet = require('helmet');
 
 app.use(helmet());
-app.disable('x-powered-by');
 app.use((req, res, next) => {
   res.set({
     'X-Content-Type-Options': 'nosniff',
