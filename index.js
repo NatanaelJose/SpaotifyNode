@@ -8,6 +8,7 @@ const session = require('cookie-session')
 const flash = require('connect-flash');
 const cors = require('cors')
 const handlebars = require('handlebars');
+const path = require('path')
 
 const PORT = process.env.PORT || 3000;
 //routes
@@ -47,7 +48,7 @@ app.use((req, res, next) => {
 //view engine setup
 app.engine('handlebars', engine());
 app.set('view engine', 'handlebars');
-app.set("views", "./views");
+app.set("views", path.join(__dirname,"views"));
 
 app.use(logger('dev'));
 app.use(bodyParser.urlencoded({ extended: true })); 
