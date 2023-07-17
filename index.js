@@ -11,11 +11,19 @@ const handlebars = require('handlebars');
 const path = require('path')
 const helmet = require('helmet');
 
+app.use(helmet());
+app.disable('x-powered-by');
+
+
 const PORT = process.env.PORT || 3000;
 //routes
 const mongoDB = require('./db/conn');
 const pagesRoutes = require('./routes/pagesRoutes');
 
+app.use((req, res, next) => {
+  res.setHeader('Content-Security-Policy', "frame-ancestors 'self'");
+  next();
+});
 //flash e session
 app.use(session({
   maxAge:12*60*60*1000,
@@ -39,7 +47,6 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 app.use(flash());
-app.use(helmet());
 
 app.use((req, res, next) => {
   res.locals.success_msg = req.flash("success_msg")
