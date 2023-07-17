@@ -12,6 +12,7 @@ const path = require('path')
 const helmet = require('helmet');
 
 app.use(helmet());
+app.disable('x-powered-by');
 app.use((req, res, next) => {
   res.set({
     'X-Content-Type-Options': 'nosniff',
@@ -34,7 +35,7 @@ app.use(session({
   saveUninitialized: true,
 }));
 
-const whitelist = ['http://localhost:5000', "https://spaotify-node.vercel.app", "https://spaotify-node.vercel.app/api"];    
+const whitelist = ['http://localhost:5000', "https://spaotify-node.vercel.app", "https://spaotify-node.vercel.app/api", "https://spaotify-node.vercel.app/register", "https://spaotify-node.vercel.app/login"];    
 const corsOptions = {
     origin: function (origin, callback) {
       if (whitelist.indexOf(origin) !== -1 || !origin) {
