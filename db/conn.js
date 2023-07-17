@@ -1,8 +1,9 @@
 const mongoose = require('mongoose')
+require('dotenv').config()
 
 const main = async function main() {
   mongoose.Promise = global.Promise;
-  await mongoose.connect("mongodb+srv://dbUser:q3YrWOUBWdKyXpxG@cluster0.a7u9nzk.mongodb.net/Songs?retryWrites=true&w=majority", {
+  await mongoose.connect(`mongodb+srv://dbUser:${process.env.USER}@cluster0.a7u9nzk.mongodb.net/Songs?retryWrites=true&w=majority`, {
     //useNewUrlParser: true,
     useUnifiedTopology: true,
   }).then(() =>{
