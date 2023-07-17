@@ -23,20 +23,21 @@ app.use(session({
   saveUninitialized: true,
 }));
 
-const whitelist = ['http://localhost:5000', "https://spaotify-node.vercel.app", "https://spaotify-node.vercel.app/api", "https://spaotify-node.vercel.app/register", "https://spaotify-node.vercel.app/login"];    
+const whitelist = ['http://localhost:5000', "https://spaotify-node.vercel.app"];
 const corsOptions = {
-    origin: function (origin, callback) {
-      if (whitelist.indexOf(origin) !== -1 || !origin) {
-        callback(null, true);
-      } else {
-        callback(new Error('Not allowed by CORS'));
-      }
-    },
-    methods: ['GET', 'POST'],
-    allowedHeaders: ['Content-Type', 'Authorization']
-  };
+  origin: function (origin, callback) {
+    if (whitelist.indexOf(origin) !== -1 || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  methods: ['GET', 'POST'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+};
 
 app.use(cors(corsOptions));
+
 app.use(flash());
 
 app.use((req, res, next) => {
