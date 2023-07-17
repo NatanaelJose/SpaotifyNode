@@ -13,17 +13,20 @@ const helmet = require('helmet');
 
 app.use(helmet());
 app.disable('x-powered-by');
-
+app.use((req, res, next) => {
+  res.set({
+    'X-Content-Type-Options': 'nosniff',
+    'X-Frame-Options': 'SAMEORIGIN',
+    'Content-Security-Policy': "frame-ancestors 'self'",
+  });
+  next();
+});
 
 const PORT = process.env.PORT || 3000;
 //routes
 const mongoDB = require('./db/conn');
 const pagesRoutes = require('./routes/pagesRoutes');
 
-app.use((req, res, next) => {
-  res.setHeader('Content-Security-Policy', "frame-ancestors 'self'");
-  next();
-});
 //flash e session
 app.use(session({
   maxAge:12*60*60*1000,
