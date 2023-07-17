@@ -15,11 +15,11 @@
                 </article>
                 <article class="form-control">
                     <label for="senha1">Senha<span class="req">*</span></label>
-                    <input type="password" id="senha1" name="senha1" autocomplete="off" placeholder="Digite sua Senha" required/>
+                    <input type="password" id="senha1" name="senha1" pattern="{8,}" placeholder="Digite sua Senha" required/>
                 </article>
                 <article class="form-control">
                     <label for="senha2">Confirmar Senha<span class="req">*</span></label>
-                    <input type="password" id="senha2" name="senha2" autocomplete="off" placeholder="Confirme a sua Senha" required/>
+                    <input type="password" id="senha2" name="senha2" pattern="{8,}" placeholder="Confirme a sua Senha" required/>
                 </article>
                 {{!-- <a href="#" id="help-password">Quer ajuda com a senha?</a> --}}
                 <button type="submit" id="submit-register">Registrar-se</button>
