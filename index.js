@@ -21,8 +21,8 @@ app.use(helmet.contentSecurityPolicy({
   directives: {
     defaultSrc: ["'self'"],
     fontSrc: ["'self'", "https://fonts.gstatic.com"],
-    imgSrc: ["'self'", "https://upload.wikimedia.org"], // Permitir carregar imagens de "https://upload.wikimedia.org"
-    mediaSrc: ["'self'", "https://upload.wikimedia.org"], // Permitir carregar arquivos de áudio de "https://upload.wikimedia.org"
+    imgSrc: ["'self'", "https://upload.wikimedia.org", "data:"], // Permitir carregar imagens de 'self', 'https://upload.wikimedia.org' e 'data:'
+    mediaSrc: ["'self'", "https://upload.wikimedia.org", "data:"], // Permitir carregar arquivos de áudio de "https://upload.wikimedia.org"
     scriptSrc: ["'self'", "'sha256-LofIu98g2EQb8PS9m6qIn4S6X4Y1V3lnSeB+FyGqmgU='"], // Use o hash SHA-256 do script específico
     styleSrc: ["'self'", "https://fonts.googleapis.com"],
     frameSrc: ["'self'", "https://www.youtube.com"],
