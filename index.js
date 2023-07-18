@@ -25,7 +25,7 @@ app.use(session({
   saveUninitialized: true,
 }));
 
-const whitelist = ['http://localhost:5000', "https://spaotify.vercel.app"];
+const whitelist = ['http://localhost:5000', "https://paotify.vercel.app"];
 const corsOptions = {
   origin: function (origin, callback) {
     if (whitelist.indexOf(origin) !== -1 || !origin) {

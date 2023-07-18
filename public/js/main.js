@@ -14,7 +14,7 @@ const totalTime = document.getElementById('total-time');
 const likeButton = document.getElementById('like');
 const usrButton = document.getElementById('user-enter');
 
-const api = fetch('https://spaotify.vercel.app/api').then(response => response.json()).then(data => {
+const api = fetch('https://paotify.vercel.app/api').then(response => response.json()).then(data => {
         const dataMusic = data;
     
         // shuffleArray(dataMusic);
