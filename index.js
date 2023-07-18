@@ -20,7 +20,7 @@ const pagesRoutes = require('./routes/pagesRoutes');
 app.use((req, res, next) => {
   const nonce = Buffer.from(`${Math.random()}`).toString('base64'); // Gera um nonce único
 
-  res.setHeader('Content-Security-Policy', `default-src 'self'; img-src 'self' data: https://upload.wikimedia.org; media-src 'self' https://upload.wikimedia.org; script-src 'self' 'unsafe-inline' 'nonce-${nonce}'; connect-src 'self' https://spaotify.vercel.app`);
+  res.setHeader('Content-Security-Policy', `default-src 'self'; img-src 'self' https://upload.wikimedia.org; media-src 'self' https://upload.wikimedia.org; script-src 'self' 'unsafe-inline' 'nonce-${nonce}'; connect-src 'self' https://spaotify.vercel.app`);
   res.setHeader('X-Content-Type-Options', 'nosniff');
   res.setHeader('X-Frame-Options', 'SAMEORIGIN');
   res.setHeader('X-XSS-Protection', '1; mode=block');
