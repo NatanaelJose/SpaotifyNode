@@ -17,12 +17,7 @@ const mongoDB = require('./db/conn');
 const pagesRoutes = require('./routes/pagesRoutes');
 
 //flash, session e helmet
-app.use(helmet.hsts({
-  maxAge: 31536000,   // 1 ano em segundos
-  includeSubDomains: true,   // Inclui subdomínios
-  preload: true   // Permite inclusão na lista de pré-carregamento do navegador
-}));
-app.use(helmet())
+
 app.use(session({
   maxAge:12*60*60*1000,
   secret: process.env.SECRET || 'secret',
