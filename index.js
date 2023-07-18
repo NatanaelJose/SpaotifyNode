@@ -17,21 +17,6 @@ const mongoDB = require('./db/conn');
 const pagesRoutes = require('./routes/pagesRoutes');
 
 //flash, session e helmet
-app.use(helmet.contentSecurityPolicy({
-  directives: {
-    defaultSrc: ["'self'"],
-    fontSrc: ["'self'", "https://fonts.gstatic.com"],
-    imgSrc: ["'self'", "https://upload.wikimedia.org", "https://commons.wikimedia.org", "data:"], // Permitir carregar imagens de 'self', 'https://upload.wikimedia.org' e 'data:'
-    mediaSrc: ["'self'", "https://upload.wikimedia.org", "data:"], // Permitir carregar arquivos de áudio de "https://upload.wikimedia.org"
-    scriptSrc: ["'self'", "'sha256-LofIu98g2EQb8PS9m6qIn4S6X4Y1V3lnSeB+FyGqmgU='"], // Use o hash SHA-256 do script específico
-    styleSrc: ["'self'", "https://fonts.googleapis.com"],
-    frameSrc: ["'self'", "https://www.youtube.com"],
-    connectSrc: ["'self'", "https://spaotify.vercel.app/api"] // Adicione sua API à diretiva connectSrc
-  },
-  reportOnly: true, // Se definido como true, o navegador apenas relatará as violações, mas não bloqueará nada
-  setAllHeaders: true, // Define todos os cabeçalhos CSP, mesmo que não existam diretivas definidas
-}));
-
 app.use((req, res, next) => {
   res.setHeader('Strict-Transport-Security', 'max-age=31536000; includeSubDomains');
 
