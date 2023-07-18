@@ -17,6 +17,7 @@ const mongoDB = require('./db/conn');
 const pagesRoutes = require('./routes/pagesRoutes');
 
 //flash, session e helmet
+app.use(helmet())
 app.use(session({
   maxAge:12*60*60*1000,
   secret: process.env.SECRET || 'secret',
