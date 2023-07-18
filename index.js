@@ -17,6 +17,21 @@ const mongoDB = require('./db/conn');
 const pagesRoutes = require('./routes/pagesRoutes');
 
 //flash, session e helmet
+app.use(helmet.contentSecurityPolicy({
+  directives: {
+    defaultSrc: ["'self'"],
+    fontSrc: ["'self'", "https://fonts.gstatic.com"],
+    imgSrc: ["'self'", "https://upload.wikimedia.org"], // Permitir carregar imagens de "https://upload.wikimedia.org"
+    mediaSrc: ["'self'", "https://upload.wikimedia.org"], // Permitir carregar arquivos de áudio de "https://upload.wikimedia.org"
+    scriptSrc: ["'self'"],
+    styleSrc: ["'self'", "https://fonts.googleapis.com"],
+    frameSrc: ["'self'", "https://www.youtube.com"],
+    connectSrc: ["'self'", "https://api.example.com"] // Adicione sua API à diretiva connectSrc
+  },
+  reportOnly: false, // Se definido como true, o navegador apenas relatará as violações, mas não bloqueará nada
+  setAllHeaders: true, // Define todos os cabeçalhos CSP, mesmo que não existam diretivas definidas
+}));
+
 app.use((req, res, next) => {
 
   res.setHeader('X-Content-Type-Options', 'nosniff');
