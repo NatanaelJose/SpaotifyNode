@@ -56,26 +56,34 @@ const api = fetch("https://paotify.vercel.app/api")
       playSong();
     }
 
-    function playPauseDecider() {
-      if (isPlaying === true) {
-        pauseSong();
-      } else {
-        playSong();
-      }
+    async function playPauseDecider() {
+       if (isPlaying === true) {
+          await pauseSong();
+       } else {
+          await playSong();
+       }
     }
 
     async function playSong() {
-      play.querySelector(".bi").classList.remove("bi-play-circle-fill");
-      play.querySelector(".bi").classList.add("bi-pause-circle-fill");
-      song.play();
-      isPlaying = true;
+       try {
+          play.querySelector('.bi').classList.remove('bi-play-circle-fill');
+          play.querySelector('.bi').classList.add('bi-pause-circle-fill');
+          await song.play();
+          isPlaying = true;
+       } catch (error) {
+          console.error('Erro ao tentar reproduzir a música:', error);
+       }
     }
 
     async function pauseSong() {
-      play.querySelector(".bi").classList.remove("bi-pause-circle-fill");
-      play.querySelector(".bi").classList.add("bi-play-circle-fill");
-      song.pause();
-      isPlaying = false;
+      try {
+        play.querySelector(".bi").classList.remove("bi-pause-circle-fill");
+        play.querySelector(".bi").classList.add("bi-play-circle-fill");
+        await song.pause();
+        isPlaying = false;
+      } catch (error) {
+        console.error('Erro ao tentar pausar a música:', error);
+      }
     }
 
     /** 
